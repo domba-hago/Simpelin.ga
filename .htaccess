@@ -1,0 +1,24 @@
+# ====
+# MAIN
+# ====
+
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+Options All -Indexes
+
+# ============
+# USE WWW. URL
+# ============
+
+# RewriteEngine On
+# RewriteRule ^(.*)$ http://www.simpelin.ga/$1 [R=301,L]
+
+# ===========
+# CODEIGNITER
+# ===========
+
+RewriteEngine On
+RewriteCond $1 !^(index\.php|robots\.txt|sitemap\.xml)
+RewriteCond $1 !^(assets)
+RewriteCond %(REQUEST_FILENAME) !-f
+RewriteCond %(REQUEST_FILENAME) !-d
+RewriteRule ^(.*)$ ./index.php?/$1 [L]
